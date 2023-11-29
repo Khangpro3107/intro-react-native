@@ -6,6 +6,9 @@ import { View, Text, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Button } from "native-base";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import Icon from "react-native-vector-icons/FontAwesome";
+import { Image } from "react-native";
+const onboarding3 = require('../../../assets/onboarding3.png');
 
 type WelcomeScreenNavigatorProps = NativeStackScreenProps<
   RootStackParamList,
@@ -17,16 +20,20 @@ const Welcome = (props: {
 }) => {
   return (
     <View style={styles.container}>
-      <Text> And find out about your location</Text>
+      <Image
+        source={onboarding3}
+        style={{ width: 300, height: 500, borderRadius: 10 }}
+      />
+      <Text style={styles.text}>Explore The World Around You !</Text>
       <StatusBar style="auto" />
-      <Button onPress={() => props.onNavigate(RootScreens.OB2)}>
-        Prev
-        {/* <FontAwesomeIcon icon="fa-chevron-right" size={30} /> */}
-      </Button>
-      <Button onPress={() => props.onNavigate(RootScreens.MAIN)}>
-        Next
-        {/* <FontAwesomeIcon icon="fa-chevron-left" size={30} /> */}
-      </Button>
+      <View style={styles.icons}>
+        <Button style={styles.button} onPress={() => props.onNavigate(RootScreens.OB2)}>
+          <Icon name="angle-left" style={styles.icon} />
+        </Button>
+        <Button style={styles.button} onPress={() => props.onNavigate(RootScreens.MAIN)}>
+          <Text style={styles.start}>Let’s go</Text>
+        </Button>
+      </View>
     </View>
   );
 };
@@ -34,9 +41,38 @@ const Welcome = (props: {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#15803D",
     alignItems: "center",
-    justifyContent: "center",
+    paddingTop: 180,
+  },
+  text: {
+    fontWeight: "bold",
+    fontStyle: 'italic',
+    marginTop: 50,
+    fontSize: 20,
+    color: "#fff",
+  },
+  icons: {
+    flexDirection: 'row',
+    paddingLeft: 20,
+    paddingRight: 20,
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  icon: {
+    fontSize: 50,
+    color: "#fff",
+    marginTop: 20,
+  },
+  button: {
+    backgroundColor: 'rgba(255, 255, 255, 0)',
+  },
+  start: {
+    fontSize: 20,
+    color: "#fff",
+    fontStyle: 'italic',
+    fontWeight: "bold",
+    textDecorationLine: 'underline',
   },
 });
 
