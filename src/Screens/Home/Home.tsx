@@ -19,7 +19,7 @@ export const Home = (props: IHomeProps) => {
     "Ho Chi Minh University of Technology",
     "Ho Chi Minh City International University",
     "Ho Chi Minh City University of Science",
-    "Ho Chi Minh City University of Social Sciences and Humanities",
+    "Nguyen Khuyen High School for the gifted",
     "University of Economics and Law",
   ];
   const outstandingDummy = [
@@ -42,35 +42,35 @@ export const Home = (props: IHomeProps) => {
       {/* <StatusBar style="auto" /> */}
       <ScrollView style={styles.scrollContainer}>
         <View style={{ marginBottom: 30 }}>
-          {/* <View>
-            <Text>Home</Text>
-          </View> */}
+          <View>
+            <View>
+              <Text style={homeTitle.text}>Home</Text>
+            </View>
+          </View>
           <View style={styles.topContainer}>
             <Image
               source={require("../../../assets/app-icon.png")}
-              style={{ width: 80, height: 80 }}
+              style={{ width: 120, height: 120 }}
             />
             <View>
-              <Text>Quick Location Info Scanning</Text>
+              <Text style={homeTitle.slogan}>Quick Location Info Scanning</Text>
               <Text>Unlock Locations, Uncover Stories!</Text>
-              <View>
-                <Button title="Scan now!" />
-              </View>
+              <Button title="Scan now!" color="#15803d" />
             </View>
           </View>
         </View>
         <View style={{ marginBottom: 30 }}>
-          <Text>Recently scanned locations</Text>
-          <>
+          <Text style={locationStyle.title}>Recently scanned locations</Text>
+          <View style={locationStyle.container}>
             {recentDummy.map((item, index) => (
-              <View key={index}>
-                <Text>{item}</Text>
+              <View key={index} style={locationItemStyle.container}>
+                <Text style={locationItemStyle.text}>{item}</Text>
               </View>
             ))}
-          </>
+          </View>
         </View>
         <View>
-          <Text>Outstanding locations</Text>
+          <Text style={locationStyle.title}>Outstanding locations</Text>
           <View style={styles.outstandingContainer}>
             {outstandingDummy.map((item, index) => (
               <View key={index} style={{ width: 120 }}>
@@ -106,5 +106,56 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     justifyContent: "space-between",
+  },
+});
+
+const locationItemStyle = StyleSheet.create({
+  container: {
+    borderWidth: 1,
+    borderStyle: "solid",
+    borderRadius: 10,
+    width: "100%",
+    height: 34,
+    borderColor: "#15803D",
+  },
+  text: {
+    fontSize: 12,
+    paddingLeft: 16,
+    paddingTop: 8,
+  },
+});
+const locationStyle = StyleSheet.create({
+  container: {
+    display: "flex",
+    gap: 10,
+    flexDirection: "column",
+  },
+  title: {
+    fontWeight: "bold",
+    fontSize: 16,
+    fontStyle: "italic",
+    marginBottom: 10,
+  },
+});
+
+const homeTitle = StyleSheet.create({
+  text: {
+    fontSize: 30,
+    fontWeight: "bold",
+  },
+  slogan: {
+    fontWeight: "bold",
+  },
+});
+const buttonStyle = StyleSheet.create({
+  scanButton: {
+    borderRadius: 30,
+    width: 120,
+    height: 50,
+    backgroundColor: "#15803D",
+  },
+  scanText: {
+    fontWeight: "bold",
+    color: "white",
   },
 });

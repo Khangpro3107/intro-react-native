@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Expo Redux Template",
-    "slug": "expo-redux-template",
+    "name": "QLIS",
+    "slug": "qlis",
     "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,7 +13,7 @@
     },
     "updates": {
       "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/82716b8e-2818-4161-8a88-c571df4369a5"
+      "url": "https://u.expo.dev/c35d8fe4-be58-4892-afb4-66b7da08a477"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -35,6 +35,11 @@
     "plugins": [],
     "runtimeVersion": {
       "policy": "sdkVersion"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c35d8fe4-be58-4892-afb4-66b7da08a477"
+      }
     }
   }
 }

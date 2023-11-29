@@ -5,33 +5,37 @@ import { RootScreens } from "..";
 import { View, Text, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Button, ChevronLeftIcon, ChevronRightIcon } from "native-base";
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Image } from "react-native";
-const logo = require('../../../assets/logo.png');
+const logo = require("../../../assets/logo.png");
 
 type WelcomeScreenNavigatorProps = NativeStackScreenProps<
   RootStackParamList,
   RootScreens.OB1
 >;
 
-const Welcome = (props: {
-  onNavigate: (string: RootScreens) => void;
-}) => {
+const Welcome = (props: { onNavigate: (string: RootScreens) => void }) => {
   return (
     <View style={styles.container}>
-      <Image
-        source={logo}
-        style={{ width: 150, height: 150 }}
-      />
+      <Image source={logo} style={{ width: 150, height: 150 }} />
       <Text style={styles.text}>Unlock Locations, Uncover Stories!</Text>
       <StatusBar style="auto" />
       <View style={styles.icons}>
-        <Button style={styles.button} onPress={() => props.onNavigate(RootScreens.OB1)}>
+        <Button
+          style={styles.button}
+          onPress={() => props.onNavigate(RootScreens.OB1)}
+        >
           {/* <Icon name="angle-left" style={styles.icon} /> */}
         </Button>
-        <Button style={styles.button} onPress={() => props.onNavigate(RootScreens.OB2)}>
-          <Icon name="angle-right" style={styles.icon} />
+        <Button
+          style={styles.button}
+          onPress={() => props.onNavigate(RootScreens.OB2)}
+        >
+          {/* <Icon name="angle-right" style={styles.icon} /> */}
+          <Text style={{ color: "#fff", fontSize: 50, fontWeight: "bold" }}>
+            {">"}
+          </Text>
         </Button>
       </View>
     </View>
@@ -47,17 +51,17 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: "bold",
-    fontStyle: 'italic',
+    fontStyle: "italic",
     marginTop: 300,
     fontSize: 20,
     color: "#fff",
   },
   icons: {
-    flexDirection: 'row',
+    flexDirection: "row",
     paddingLeft: 20,
     paddingRight: 20,
-    justifyContent: 'space-between',
-    width: '100%',
+    justifyContent: "space-between",
+    width: "100%",
   },
   icon: {
     fontSize: 50,
@@ -65,8 +69,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   button: {
-    backgroundColor: 'rgba(255, 255, 255, 0)',
-  }
+    backgroundColor: "rgba(255, 255, 255, 0)",
+  },
 });
 
 export const WelcomeContainer_1 = ({

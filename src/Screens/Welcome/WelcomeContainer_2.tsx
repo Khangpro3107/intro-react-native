@@ -5,19 +5,17 @@ import { RootScreens } from "..";
 import { View, Text, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Button } from "native-base";
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Image } from "react-native";
-const onboarding2 = require('../../../assets/onboarding2.png');
+const onboarding2 = require("../../../assets/onboarding2.png");
 
 type WelcomeScreenNavigatorProps = NativeStackScreenProps<
   RootStackParamList,
   RootScreens.OB2
 >;
 
-const Welcome = (props: {
-  onNavigate: (string: RootScreens) => void;
-}) => {
+const Welcome = (props: { onNavigate: (string: RootScreens) => void }) => {
   return (
     <View style={styles.container}>
       <Image
@@ -27,11 +25,23 @@ const Welcome = (props: {
       <Text style={styles.text}>Unlock Locations, Uncover Stories!</Text>
       <StatusBar style="auto" />
       <View style={styles.icons}>
-        <Button style={styles.button} onPress={() => props.onNavigate(RootScreens.OB1)}>
-          <Icon name="angle-left" style={styles.icon} />
+        <Button
+          style={styles.button}
+          onPress={() => props.onNavigate(RootScreens.OB1)}
+        >
+          {/* <Icon name="angle-left" style={styles.icon} /> */}
+          <Text style={{ color: "#fff", fontSize: 50, fontWeight: "bold" }}>
+            {"<"}
+          </Text>
         </Button>
-        <Button style={styles.button} onPress={() => props.onNavigate(RootScreens.OB3)}>
-          <Icon name="angle-right" style={styles.icon} />
+        <Button
+          style={styles.button}
+          onPress={() => props.onNavigate(RootScreens.OB3)}
+        >
+          {/* <Icon name="angle-right" style={styles.icon} /> */}
+          <Text style={{ color: "#fff", fontSize: 50, fontWeight: "bold" }}>
+            {">"}
+          </Text>
         </Button>
       </View>
     </View>
@@ -47,17 +57,17 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: "bold",
-    fontStyle: 'italic',
+    fontStyle: "italic",
     marginTop: 50,
     fontSize: 20,
     color: "#fff",
   },
   icons: {
-    flexDirection: 'row',
+    flexDirection: "row",
     paddingLeft: 20,
     paddingRight: 20,
-    justifyContent: 'space-between',
-    width: '100%',
+    justifyContent: "space-between",
+    width: "100%",
   },
   icon: {
     fontSize: 50,
@@ -65,8 +75,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   button: {
-    backgroundColor: 'rgba(255, 255, 255, 0)',
-  }
+    backgroundColor: "rgba(255, 255, 255, 0)",
+  },
 });
 
 export const WelcomeContainer_2 = ({
