@@ -6,6 +6,9 @@ import { View, Text, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Button } from "native-base";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import Icon from "react-native-vector-icons/FontAwesome";
+import { Image } from "react-native";
+const onboarding2 = require('../../../assets/onboarding2.png');
 
 type WelcomeScreenNavigatorProps = NativeStackScreenProps<
   RootStackParamList,
@@ -17,16 +20,20 @@ const Welcome = (props: {
 }) => {
   return (
     <View style={styles.container}>
-      <Text> Where you can scan QR</Text>
+      <Image
+        source={onboarding2}
+        style={{ width: 300, height: 500, borderRadius: 10 }}
+      />
+      <Text style={styles.text}>Unlock Locations, Uncover Stories!</Text>
       <StatusBar style="auto" />
-      <Button onPress={() => props.onNavigate(RootScreens.OB1)}>
-        Prev
-        {/* <FontAwesomeIcon icon="chevron-right" size={30} /> */}
-      </Button>
-      <Button onPress={() => props.onNavigate(RootScreens.OB3)}>
-        Next
-        {/* <FontAwesomeIcon icon="chevron-left" size={30} /> */}
-      </Button>
+      <View style={styles.icons}>
+        <Button style={styles.button} onPress={() => props.onNavigate(RootScreens.OB1)}>
+          <Icon name="angle-left" style={styles.icon} />
+        </Button>
+        <Button style={styles.button} onPress={() => props.onNavigate(RootScreens.OB3)}>
+          <Icon name="angle-right" style={styles.icon} />
+        </Button>
+      </View>
     </View>
   );
 };
@@ -34,10 +41,32 @@ const Welcome = (props: {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#15803D",
     alignItems: "center",
-    justifyContent: "center",
+    paddingTop: 180,
   },
+  text: {
+    fontWeight: "bold",
+    fontStyle: 'italic',
+    marginTop: 50,
+    fontSize: 20,
+    color: "#fff",
+  },
+  icons: {
+    flexDirection: 'row',
+    paddingLeft: 20,
+    paddingRight: 20,
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  icon: {
+    fontSize: 50,
+    color: "#fff",
+    marginTop: 20,
+  },
+  button: {
+    backgroundColor: 'rgba(255, 255, 255, 0)',
+  }
 });
 
 export const WelcomeContainer_2 = ({
